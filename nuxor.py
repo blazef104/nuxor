@@ -20,13 +20,11 @@ print("Compute the XOR between a range of integears ad display a 3D Plot")
 print("The graph will show Z = X XOR Y")
 fr = int(input("From: "))
 to = int(input("To: "))
-gif = input("Generate gif?[Y]/n: ")
+gif = input("Generate gif, png or plot? [png] ")
 x = []
 images = []
 for i in range(fr, to):
     x.append(i)
-
-print(x, gif)
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
@@ -34,16 +32,22 @@ ax = fig.add_subplot(111, projection='3d')
 
 for i in x:
     for i1 in x:
-        ax.scatter(i, i1, i ^ i1, c="b", marker='o')
+        ax.scatter(i, i1, i ^ i1, c="b", marker=',')
 
-if not gif:
+if gif == "gif":
     os.mkdir("tmp/")
-    for angle in range(0, 180):
+    for angle in range(0, 90):
         ax.view_init(25, angle)
         name = "tmp/num"+str(angle)+".png"
         print("Generating ", name)
         images.append(name)
         plt.savefig(name)
     genGif(images)
-else:
+
+elif gif == "plot":
     plt.show()
+
+else:
+    ax.view_init(25, 45)
+    plt.savefig("numbers.png")
+    print("Done!")
