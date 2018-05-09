@@ -1,6 +1,6 @@
 # Nuxor - Number XOR
 
-Simple python script to generate an image from XORing the numbers in the given range and see if i can still write code.
+Simple python script to generate an image by XORing the numbers in the given range. Also an exercise to see if i can still write code.
 
 No fancy numpy arrays are used. Just basic stuff to keep the code as simple as possible.
 
